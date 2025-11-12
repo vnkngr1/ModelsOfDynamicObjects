@@ -41,7 +41,7 @@ k_values = [k_min, k_nom, k_max];
 Y0 = [0.5; 0; 0.5; 0]; % [theta0; theta_dot0; Delta0; Delta_dot0]
 
 % Вектор времени
-t_max = 100; % c
+t_max = 1000; % c
 dt = 0.01;   % c
 tspan = 0:dt:t_max;
 
@@ -71,7 +71,7 @@ end
 hold off;
 title('Изменение Угла \theta(t)');
 xlabel('Время t, с');
-ylabel('Угол \theta, рад');
+ylabel('Угол theta, рад');
 legend('Location', 'best');
 grid on;
 
@@ -82,9 +82,9 @@ for i = 1:length(results)
     plot(results{i}.T, results{i}.Y(:, 3), 'DisplayName', titles{i});
 end
 hold off;
-title('Изменение Удлинения Пружины \Delta(t)');
+title('Изменение Удлинения Пружины Delta(t)');
 xlabel('Время t, с');
-ylabel('Удлинение \Delta, м');
+ylabel('Удлинение Delta, м');
 legend('Location', 'best');
 grid on;
 
@@ -92,28 +92,28 @@ grid on;
 figure(2);
 sgtitle('Фазовые Портреты Системы (k = 4.0, 5.0, 6.0)', 'FontSize', 14);
 
-% Фазовый портрет для \theta (theta - theta_dot)
+% Фазовый портрет для theta (theta - theta_dot)
 subplot(1, 2, 1);
 hold on;
 for i = 1:length(results)
     plot(results{i}.Y(:, 1), results{i}.Y(:, 2), 'DisplayName', titles{i});
 end
 hold off;
-title('Фазовый Портрет: \theta - \dot{\theta}');
-xlabel('\theta, рад');
-ylabel('\dot{\theta}, рад/с');
+title('Фазовый Портрет: theta - theta_dot');
+xlabel('theta, рад');
+ylabel('theta_dot, рад/с');
 legend('Location', 'best');
 grid on;
 
-% Фазовый портрет для \Delta (Delta - Delta_dot)
+% Фазовый портрет для Delta (Delta - Delta_dot)
 subplot(1, 2, 2);
 hold on;
 for i = 1:length(results)
     plot(results{i}.Y(:, 3), results{i}.Y(:, 4), 'DisplayName', titles{i});
 end
 hold off;
-title('Фазовый Портрет: \Delta - \dot{\Delta}');
-xlabel('\Delta, м');
-ylabel('\dot{\Delta}, м/с');
+title('Фазовый Портрет: Delta - Delta_dot');
+xlabel('Delta, м');
+ylabel('Delta_dot, м/с');
 legend('Location', 'best');
 grid on;
